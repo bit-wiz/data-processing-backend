@@ -10,7 +10,8 @@ const options = {
         },
         servers: [
             {
-                url: 'http://localhost:3000/api',
+                // actual deploye url
+                url: process.env.BASE_URL,
             },
         ],
         components: {
