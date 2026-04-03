@@ -1,8 +1,14 @@
+import 'dotenv/config';
 import { PrismaClient } from '@prisma/client';
+import { PrismaLibSql } from '@prisma/adapter-libsql';
 import bcrypt from 'bcryptjs';
-import "dotenv/config";
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient({
+    adapter: new PrismaLibSql({
+        url: process.env.TURSO_DATABASE_URL,
+        authToken: process.env.TURSO_AUTH_TOKEN,
+    }),
+});
 
 async function main() {
     await prisma.financialRecord.deleteMany();
