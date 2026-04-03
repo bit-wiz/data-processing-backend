@@ -25,10 +25,13 @@ router.use(authenticate);
  *         schema: { type: string }
  *       - in: query
  *         name: startDate
- *         schema: { type: string, format: date, example: "2024-03-01" }
+ *         schema: { type: string, format: date }
  *       - in: query
  *         name: endDate
  *         schema: { type: string, format: date }
+ *       - in: query
+ *         name: date
+ *         schema: { type: string, format: date, example: "2024-03-01" }
  *     responses:
  *       200:
  *         description: List of records
